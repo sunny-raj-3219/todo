@@ -7,7 +7,7 @@ function Create({ onTaskAdded }) {
   const handleAdd = () => {
     if (!task.trim()) return;
 
-    axios.post('http://localhost:3001/add', { task })
+axios.post('https://todo-bkend-qcxt.onrender.com/add', { task })
       .then(result => {
         console.log("Task added:", result.data);
         setTask(""); // Clear the input field

@@ -12,19 +12,19 @@ function Home() {
   }, []);
 
   const fetchData = () => {
-    axios.get('http://localhost:3001/get')
+axios.get('https://todo-bkend-qcxt.onrender.com/get')
       .then(result => setTodo(result.data))
       .catch(err => console.log(err));
   };
 
   const handleEdit = (id) => {
-    axios.put(`http://localhost:3001/update/${id}`)
+axios.put(`https://todo-bkend-qcxt.onrender.com/update/${id}`)
       .then(() => fetchData())
       .catch(err => console.log(err));
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:3001/delete/${id}`)
+axios.delete(`https://todo-bkend-qcxt.onrender.com/delete/${id}`)
       .then(() => fetchData())
       .catch(err => console.log(err));
   };

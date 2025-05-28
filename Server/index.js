@@ -8,12 +8,9 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://rajsunny0022:Sunny111@cluster.mongodb.net/test?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log("Connected to MongoDB"))
-.catch((err) => console.error("MongoDB connection error:", err));
+mongoose.connect('mongodb+srv://rajsunny0022:Sunny111%40@todouser.5bexjed.mongodb.net/?retryWrites=true&w=majority&appName=todoUser')
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 app.get('/get', (req, res) => {
   TodoModel.find()

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // make sure axios is imported
+import axios from 'axios';
 
-function Create() {
+function Create({ onTaskAdded }) {
   const [task, setTask] = useState("");
 
   const handleAdd = () => {
@@ -10,7 +10,8 @@ function Create() {
     axios.post('http://localhost:3001/add', { task })
       .then(result => {
         console.log("Task added:", result.data);
-        setTask(""); // clear input
+        setTask(""); // Clear the input field
+        if (onTaskAdded) onTaskAdded(); // ✅ Notify parent to refresh list
       })
       .catch(err => console.log("Error:", err));
   };

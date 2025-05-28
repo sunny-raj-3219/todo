@@ -30,31 +30,32 @@ function Home() {
   };
 
   return (
-    <div className='home'>
-      <h2>📝 Todo List</h2>
-      <Create />
-      {todo.length === 0 ? (
-        <div className="empty-list">No records found.</div>
-      ) : (
-        todo.map((item, index) => (
-          <div className='todo-item' key={index}>
-            <div className='checkbox' onClick={() => handleEdit(item._id)}>
-              {item.done ? (
-                <BsCheckCircleFill className='icon' />
-              ) : (
-                <BsCircle className='icon' />
-              )}
-              <p className={item.done ? "line_through" : ""}>{item.task}</p>
-            </div>
-            <div>
-              <span onClick={() => handleDelete(item._id)}>
-                <BsFillTrashFill className='icon delete-icon' />
-              </span>
-            </div>
-          </div>
-        ))
-      )}
-    </div>
+<div className='home'>
+  <h2>📝 Todo List</h2>
+  <Create onTaskAdded={fetchData} /> {/* ✅ This is the updated line */}
+  {todo.length === 0 ? (
+    <div className="empty-list">No records found.</div>
+  ) : (
+    todo.map((item, index) => (
+      <div className='todo-item' key={index}>
+        <div className='checkbox' onClick={() => handleEdit(item._id)}>
+          {item.done ? (
+            <BsCheckCircleFill className='icon' />
+          ) : (
+            <BsCircle className='icon' />
+          )}
+          <p className={item.done ? "line_through" : ""}>{item.task}</p>
+        </div>
+        <div>
+          <span onClick={() => handleDelete(item._id)}>
+            <BsFillTrashFill className='icon delete-icon' />
+          </span>
+        </div>
+      </div>
+    ))
+  )}
+</div>
+
   );
 }
 
